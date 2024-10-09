@@ -1,0 +1,64 @@
+body {
+    background-color: #F4F4F9;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    margin-top: 20px;
+}
+
+h2, h3 {
+    color: #BE6DB7;
+}
+
+.form-group label {
+    color: #333;
+}
+
+.btn-primary {
+    background-color: #BE6DB7;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #C04A82;
+}
+
+.table th {
+    background-color: #DC8449;
+    color: white;
+}
+
+.logout-btn {
+    background-color: #C82333;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #A71D2A;
+}
+
+.logout-container {
+    text-align: right;
+    margin-bottom: 20px;
+}
+.logout-container {
+    text-align: right;
+    margin-bottom: 20px;
+}
+
+.logout-btn {
+    background-color: #C82333;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.logout-btn:hover {
+    background-color: #A71D2A;
+}
