@@ -82,12 +82,24 @@ $orders = $orderObj->fetchOrdersByClient($clientId);
             margin-left: 270px;
             padding: 20px;
         }
+<<<<<<< HEAD
+=======
+        .btn-add-order {
+            background-color: #28a745;
+            color: white;
+            margin-top: 20px;
+        }
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
     </style>
 </head>
 <body>
     <div class="sidebar">
         <h3>Menu</h3>
         <a href="client_dashboard.php">Dashboard</a>
+<<<<<<< HEAD
+=======
+        <a href="create_order.php">Create Order</a>
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
         <a href="logout.php">Logout</a>
 
         <h4>Search by Order ID:</h4>
@@ -150,6 +162,11 @@ $orders = $orderObj->fetchOrdersByClient($clientId);
                 <?php endif; ?>
             </tbody>
         </table>
+<<<<<<< HEAD
+=======
+
+        <a href="create_order.php" class="btn btn-success btn-add-order">Add Order</a>
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
     </div>
 </body>
 </html>

@@ -3,14 +3,22 @@ session_start();
 require 'config.php';
 require 'Order.php';
 
+<<<<<<< HEAD
 if (!isset($_SESSION['role']) || $_SESSION['role'] !== 'driver') {
+=======
+if ($_SESSION['role'] !== 'driver') {
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
     header('Location: login.php');
     exit;
 }
 
 $driverId = $_SESSION['user_id'];
 $orderObj = new Order($pdo);
+<<<<<<< HEAD
 $orders = $orderObj->fetchOrdersByDriver($driverId);
+=======
+$orders = $orderObj->fetchAllOrders();
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
 ?>
 
 <!DOCTYPE html>

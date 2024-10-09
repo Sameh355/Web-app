@@ -13,6 +13,11 @@ $orderObj = new Order($pdo);
 $orders = [];
 $searchedOrder = null;
 $searchedOrderId = null;
+<<<<<<< HEAD
+=======
+
+// Search orders by ID or filter by status
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
 if (isset($_POST['search_order_id']) && !empty($_POST['search_order_id'])) {
     $searchedOrderId = $_POST['search_order_id'];
     $searchedOrder = $orderObj->fetchOrderById($searchedOrderId);
@@ -30,7 +35,11 @@ if (isset($_POST['search_order_id']) && !empty($_POST['search_order_id'])) {
 }
 
 $availableDrivers = $orderObj->fetchAvailableDrivers();
+<<<<<<< HEAD
 $historyOrders = $orderObj->fetchHistoryOrders();
+=======
+$historyOrders = $orderObj->fetchHistoryOrders(); // Ensure this is present
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +88,7 @@ $historyOrders = $orderObj->fetchHistoryOrders();
             border-radius: 8px;
             border: none;
             font-size: 1.1rem;
+<<<<<<< HEAD
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             background-color: #fff;
             color: #333;
@@ -97,23 +107,42 @@ $historyOrders = $orderObj->fetchHistoryOrders();
         }
         .sidebar button:hover {
             background-color: #e0a800; 
+=======
+            background-color: #fff;
+            color: #333;
+        }
+        .sidebar button {
+            background-color: #ffc107;
+            color: #343a40;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        .sidebar button:hover {
+            background-color: #e0a800;
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
         }
         .main-content {
             margin-left: 270px;
             padding: 20px;
         }
+<<<<<<< HEAD
         .btn-add-order {
             background-color: #28a745;
             color: white;
             margin-top: 20px;
         }
+=======
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
     </style>
 </head>
 <body>
     <div class="sidebar">
         <h3>Menu</h3>
         <a href="admin_dashboard.php">Dashboard</a>
+<<<<<<< HEAD
         <a href="create_order.php">Create Order</a>
+=======
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
         <a href="logout.php">Logout</a>
 
         <h4>Search by Order ID:</h4>
@@ -144,6 +173,11 @@ $historyOrders = $orderObj->fetchHistoryOrders();
                     <th>Order Name</th>
                     <th>Status</th>
                     <th>Assign Driver</th>
+<<<<<<< HEAD
+=======
+                    <th>Delivery Time (Weekday)</th>
+                    <th>Delivery Time (Weekend)</th>
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
                     <th>Delivery Date</th>
                     <th>Actions</th>
                 </tr>
@@ -164,7 +198,13 @@ $historyOrders = $orderObj->fetchHistoryOrders();
                                     <?php endforeach; ?>
                                 </select>
                             </td>
+<<<<<<< HEAD
                             <td><input type="date" id="delivery_date_<?= $order['id']; ?>" class="form-control"></td>
+=======
+                            <td><input type="time" id="delivery_time_weekday_<?= $order['id']; ?>" class="form-control" value="<?= isset($order['delivery_time_weekday']) ? $order['delivery_time_weekday'] : ''; ?>"></td>
+                            <td><input type="time" id="delivery_time_weekend_<?= $order['id']; ?>" class="form-control" value="<?= isset($order['delivery_time_weekend']) ? $order['delivery_time_weekend'] : ''; ?>"></td>
+                            <td><input type="date" id="delivery_date_<?= $order['id']; ?>" class="form-control" value="<?= isset($order['delivery_date']) ? $order['delivery_date'] : ''; ?>"></td>
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
                             <td>
                                 <button type="button" class="btn btn-primary" onclick="assignDriver(<?= $order['id']; ?>)">Assign</button>
                                 <button type="button" class="btn btn-danger" onclick="deleteOrder(<?= $order['id']; ?>)">Delete</button>
@@ -173,7 +213,11 @@ $historyOrders = $orderObj->fetchHistoryOrders();
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
+<<<<<<< HEAD
                         <td colspan="7" class="text-center">No orders found.</td>
+=======
+                        <td colspan="9" class="text-center">No orders found.</td>
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
                     </tr>
                 <?php endif; ?>
             </tbody>
@@ -188,6 +232,10 @@ $historyOrders = $orderObj->fetchHistoryOrders();
                     <th>Order Name</th>
                     <th>Status</th>
                     <th>Delivery Date</th>
+<<<<<<< HEAD
+=======
+                    <th>Delivery Time</th>
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
                 </tr>
             </thead>
             <tbody id="history_orders">
@@ -198,6 +246,10 @@ $historyOrders = $orderObj->fetchHistoryOrders();
                         <td><?= $order['order_name']; ?></td>
                         <td><?= $order['status']; ?></td>
                         <td><?= $order['delivery_date']; ?></td>
+<<<<<<< HEAD
+=======
+                        <td><?= $order['delivery_time_weekday']; ?></td>
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -206,6 +258,7 @@ $historyOrders = $orderObj->fetchHistoryOrders();
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script>
+<<<<<<< HEAD
         function assignDriver(orderId) {
             var driverId = document.getElementById('driver_id_' + orderId).value;
             var deliveryDate = document.getElementById('delivery_date_' + orderId).value;
@@ -250,6 +303,71 @@ $historyOrders = $orderObj->fetchHistoryOrders();
                 alert('Please select a driver and delivery date.');
             }
         }
+=======
+    function assignDriver(orderId) {
+        var driverId = document.getElementById('driver_id_' + orderId).value;
+        var deliveryDate = document.getElementById('delivery_date_' + orderId).value;
+
+        if (driverId && deliveryDate) {
+            $.ajax({
+                url: 'assign_driver.php',
+                type: 'POST',
+                data: {
+                    order_id: orderId,
+                    driver_id: driverId,
+                    delivery_date: deliveryDate
+                },
+                success: function(response) {
+                    var res = JSON.parse(response);
+                    if (res.status === 'error') {
+                        alert(res.message);
+                    } else {
+                        alert(res.message);
+                        var historyRow = `
+                            <tr>
+                                <td>${res.order.id}</td>
+                                <td>${res.order.client_name}</td>
+                                <td>${res.order.order_name}</td>
+                                <td>${res.order.status}</td>
+                                <td>${res.order.delivery_date}</td>
+                                <td>${res.order.delivery_time_weekday}</td>
+                            </tr>
+                        `;
+                        $('#history_orders').append(historyRow);
+                        $('#order_row_' + orderId).remove();
+                    }
+                },
+                error: function() {
+                    alert("Failed to assign driver");
+                }
+            });
+        } else {
+            alert('Please select a driver and delivery date.');
+        }
+    }
+
+    function deleteOrder(orderId) {
+        if (confirm('Are you sure you want to delete this order?')) {
+            $.ajax({
+                url: 'delete_order.php',
+                type: 'POST',
+                data: { order_id: orderId },
+                success: function(response) {
+                    var res = JSON.parse(response);
+                    if (res.status === 'success') {
+                        alert('Order deleted successfully.');
+                        $('#order_row_' + orderId).remove();
+                    } else {
+                        alert(res.message);
+                    }
+                },
+                error: function() {
+                    alert('Failed to delete the order.');
+                }
+            });
+        }
+    }
+>>>>>>> ac3817fc5fc26c70f596b0f77614006c0236d30a
     </script>
 </body>
 </html>
